@@ -1,0 +1,255 @@
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: rgba(75, 75, 226, 0.262);
+    border-radius: 100px;
+}
+
+.navbarMenu {
+    color: white;
+    margin: 8px;
+    text-decoration: none;
+    color: rgba(169, 19, 19, 0.294);
+}
+
+.login-main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(99, 93, 213, 0.109);
+    width: 600px;
+    height: 500px;
+    font-size: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.login-password,
+.login-login {
+    flex-direction: row;
+}
+
+.login-logo {
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.login {
+    width: 80%;
+    margin-top: 20%;
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.login-idhint {
+    margin-left: 73px;
+    width: 80%;
+    font-size: 15px;
+    color: red;
+    padding: 7px;
+}
+
+.password {
+    width: 80%;
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.login-button {
+    width: 100px;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    align-self: center;
+    background-color: rgb(119, 169, 212);
+    border-radius: 20px;
+    border-style: none;
+    margin-top: 50px;
+}
+
+.login-button:hover {
+    background-color: rgb(69, 152, 225);
+}
+
+.login-already {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+.login-already a {
+    color: #333;
+    margin-right: 10px;
+}
+
+.login-already a:last-child {
+    margin-right: 0;
+}
+
+.register-back {
+    display: flex;
+    font-size: 20px;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    /* background-color: yellow; */
+}
+
+.register-input {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    /* background-color: red; */
+    font-size: 20px;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.register-id,
+.register-nick,
+.register-pwd {
+    width: 80%;
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.register-nick {
+    width: 70%;
+}
+
+.backbutton {
+    position: absolute;
+    font-size: 30px;
+}
+
+
+.backbutton:hover {
+    cursor: pointer;
+}
+
+.register-button {
+    width: 100px;
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    align-self: center;
+    background-color: rgb(119, 169, 212);
+    border-radius: 20px;
+    border-style: none;
+    margin-top: 50px;
+}
+
+.register-button:hover {
+    background-color: rgb(69, 152, 225);
+}
+
+.cardview-cont {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(147, 147, 238);
+    justify-content: center;
+}
+
+.cardview-item {
+    background-color: rgba(255, 0, 0, 0.42);
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    width: 300px;
+    border-radius: 20px;
+}
+
+.cardview-thumb {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.cardview-thumb:hover {
+    cursor: pointer;
+}
+
+.cardview-thumb:hover .play-button {
+    display: block;
+}
+
+.cardview-hashtags {
+    color: yellow;
+    border: 1px solid white;
+}
+
+.image-container {
+    position: relative;
+}
+
+.play-button-container {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container:hover .play-button-container {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.home-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+}
+
+.me-logo {
+    width: 300px;
+}
+
+.skill {
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+    margin-top: 10px;
+    width: 550px;
+    justify-content: space-between
+}
+
+.skill-title {
+    width: 100px;
+    color: white;
+}
+
+.progressbar {
+    margin-top: 5px;
+    width: 400px;
+}
+
+.skill-bar {
+    background-color: yellow;
+    width: 400px;
+    color: white;
+}
