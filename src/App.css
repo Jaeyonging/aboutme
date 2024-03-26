@@ -57,7 +57,7 @@
     margin-left: 73px;
     width: 80%;
     font-size: 15px;
-    color: red;
+    color: rgb(70, 21, 21);
     padding: 7px;
 }
 
@@ -179,8 +179,8 @@
 }
 
 .cardview-thumb {
-    width: 100%;
-    height: auto;
+    width: 260px;
+    height: 130px;
     margin-bottom: 20px;
 }
 
@@ -195,6 +195,7 @@
 .cardview-hashtags {
     color: yellow;
     border: 1px solid white;
+    padding: 5px;
 }
 
 .image-container {
@@ -222,7 +223,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: yellow;
+    background-color: rgb(42, 237, 255);
+    color: white;
 }
 
 .me-logo {
@@ -232,9 +234,11 @@
 .skill {
     display: flex;
     flex-direction: row;
-    background-color: red;
+    background-color: rgb(97, 68, 241);
     margin-top: 10px;
-    width: 550px;
+    width: 580px;
+    border-radius: 10px;
+    padding: 10px;
     justify-content: space-between
 }
 
@@ -252,4 +256,17 @@
     background-color: yellow;
     width: 400px;
     color: white;
+}
+
+.react-logo {
+    width: 50px;
+    height: auto;
+    color: red;
+}
+
+.skill-logos {
+    display: flex;
+    flex-direction: row;
+    width: 200px;
+    justify-content: space-between;
 }

@@ -1,10 +1,9 @@
 import { db } from '../firebase/firebase';
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
 import { Projects } from '../types/example';
 
 
-const q = query(collection(db, "projects"));
-export async function FetchProjects() {
+const q = query(collection(db, 'projects'), orderBy('date', 'desc')); export async function FetchProjects() {
     const querySnapshot = await getDocs(q)
     const projectsData: Projects[] = [];
 
