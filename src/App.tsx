@@ -13,6 +13,9 @@ import { Contact } from "./routes/Contact";
 function App() {
   return (
     <Suspense fallback={<div>로딩중</div>}>
+      {/* <audio src="../src/assets/bgm.mp3" autoPlay={true} /> */}
+
+
       <Routes>
         <Route path="/" element={<Login></Login>} />
         <Route path="/home" element={<Home></Home>} />
