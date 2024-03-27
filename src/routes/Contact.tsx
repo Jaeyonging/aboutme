@@ -4,9 +4,8 @@ import { NavBar } from '../components/NavBar'
 export const Contact = () => {
     return (
         <>
-            <NavBar>
-
-            </NavBar>
+            <NavBar />
+            Contact
         </>
 
     )

@@ -1,3 +1,7 @@
+div {
+    color: white;
+}
+
 .navBar {
     display: flex;
     justify-content: space-between;
@@ -238,7 +242,6 @@
     background-color: black;
     position: absolute;
     width: 100%;
-    height: 93%;
     color: white;
 }
 
@@ -251,7 +254,7 @@
     flex-direction: row;
     background-color: rgb(97, 68, 241);
     margin-top: 10px;
-    width: 580px;
+    width: 590px;
     border-radius: 10px;
     padding: 10px;
     justify-content: space-between
@@ -316,4 +319,41 @@
     100% {
         opacity: 0.5;
     }
+}
+
+.dropdown-logo {
+    margin-left: 5px;
+    margin-top: 4px
+}
+
+.dropdown-logo:hover {
+    cursor: pointer;
+}
+
+.dropdown-detail {
+    width: 590px;
+    transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+.dropdown-detail.open {
+    max-height: 1000px;
+    opacity: 1;
+}
+
+.dropdown-cont {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: rgb(138, 118, 239);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.dropdown-title {
+    font-size: 30px;
+    align-self: center;
+    font-weight: bold;
 }

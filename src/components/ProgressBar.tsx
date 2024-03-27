@@ -1,5 +1,6 @@
 import { LinearProgress } from '@mui/material'
-import React from 'react'
+import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
+import React, { useState } from 'react'
 
 interface Props {
     title: string,
@@ -8,18 +9,53 @@ interface Props {
 }
 
 export const ProgressBar = ({ title, value, color }: Props) => {
-    return (
+    const [isOpen, setIsOpen] = useState(false);
 
-        <div className='skill'>
-            <div className='skill-title'>
-                {title}:
+    const toggleDetails = () => {
+        setIsOpen(!isOpen);
+    }
+
+    return (
+        <>
+            <div className='skill'>
+                <div className='skill-title'>
+                    {title}:
+                </div>
+                <LinearProgress variant="determinate" className='progressbar' value={value} sx={{
+                    height: 15,
+                    '& .MuiLinearProgress-barColorPrimary': {
+                        backgroundColor: color
+                    }
+                }} />
+                {value}%
+                {isOpen ? <IoIosArrowDropup onClick={toggleDetails} className='dropdown-logo' /> : <IoIosArrowDropdown onClick={toggleDetails} className='dropdown-logo' />}
             </div>
-            <LinearProgress variant="determinate" className='progressbar' value={value} sx={{
-                height: 15,
-                '& .MuiLinearProgress-barColorPrimary': {
-                    backgroundColor: color
-                }
-            }} />
-            {value}%
-        </div>)
+            <div className={`dropdown-detail ${isOpen ? 'open' : ''}`}>
+                <div className='dropdown-cont'>
+                    <div className='dropdown-title'>
+                        {title}
+                    </div>
+                    <div>
+                        hi
+                    </div>
+                    <div>
+                        hi
+                    </div>
+                    <div>
+                        hi
+                    </div>
+                    <div>
+                        hi
+                    </div>
+                    <div>
+                        hi
+                    </div>
+                    <div>
+                        hi
+                    </div>
+                </div>
+            </div>
+        </>
+
+    );
 }

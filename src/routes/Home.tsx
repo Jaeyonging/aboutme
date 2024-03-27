@@ -20,7 +20,7 @@ export const Home = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setValue([80, 50, 50, 70, 80, 10])
+      setValue([80, 50, 40, 60, 80, 10])
     }, 150);
 
     return () => {
@@ -36,15 +36,15 @@ export const Home = () => {
         <div className='me-title'>
           Jaeyong Choi
         </div>
-        <ProgressBar title='TypeScript' value={value[0]} color='red' ></ProgressBar>
-        <ProgressBar title='Javascript' value={value[1]} color='orange'></ProgressBar>
+        <ProgressBar title='TypeScript' value={value[0]} color='red' />
+        <ProgressBar title='Javascript' value={value[1]} color='orange' />
 
-        <ProgressBar title='Java' value={value[2]} color='yellow'></ProgressBar>
+        <ProgressBar title='Java' value={value[2]} color='yellow' />
 
-        <ProgressBar title='Kotlin' value={value[3]} color='green'></ProgressBar>
+        <ProgressBar title='Kotlin' value={value[3]} color='green' />
 
-        <ProgressBar title='Python' value={value[4]} color='blue'></ProgressBar>
-        <ProgressBar title='Swift' value={value[5]} color='violet'></ProgressBar>
+        <ProgressBar title='Python' value={value[4]} color='blue' />
+        <ProgressBar title='Swift' value={value[5]} color='violet' />
 
 
         <div className='skill-logos'>
