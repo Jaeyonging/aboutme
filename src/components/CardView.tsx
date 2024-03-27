@@ -15,7 +15,6 @@ export const CardView = () => {
         fetchData();
     }, []);
 
-    console.log(projects)
 
     const imageOnCick = (gameurl: string) => {
         console.log(gameurl)
@@ -30,7 +29,7 @@ export const CardView = () => {
                     <div className="image-container">
                         <img onMouseOver={(e) => {
                             const target = e.target as HTMLImageElement;
-                            console.log(target.alt);
+                            // console.log(target.alt);
                         }} className='cardview-thumb' src={project.imgurl} alt={project.id} onClick={() => imageOnCick(project.gameurl)} />
                         <div className="play-button-container">
                             <CiPlay1 className="play-button" onClick={() => imageOnCick(project.gameurl)}></CiPlay1>

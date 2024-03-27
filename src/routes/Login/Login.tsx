@@ -3,6 +3,8 @@ import { FaUser } from "react-icons/fa";
 import { FaKey } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { LoginUser } from '../../firebase/firebaseFetch';
+import Lottie from 'lottie-react';
+import WelcomLogo from '../../assets/lottie/welcome.json'
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -60,6 +62,7 @@ export const Login = () => {
 
         <div className='login-main'>
             <div className='login-card'>
+                <Lottie animationData={WelcomLogo}></Lottie>
                 <form onSubmit={submitHandle}>
                     <div className='login-login'>
                         <FaUser className='login-logo'></FaUser>

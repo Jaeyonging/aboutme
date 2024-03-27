@@ -51,6 +51,10 @@ div {
     flex-direction: row;
 }
 
+.login-login {
+    margin-top: -100px;
+}
+
 .login-logininfo {
     font-size: 15px;
     color: rgb(70, 21, 21);
