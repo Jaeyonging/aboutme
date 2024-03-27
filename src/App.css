@@ -200,7 +200,6 @@ div {
 .cardview-cont {
     display: flex;
     flex-wrap: wrap;
-    background-color: black;
     justify-content: center;
 }
 
@@ -235,6 +234,7 @@ div {
 
 .image-container {
     position: relative;
+    height: 130px;
 }
 
 .cardview-card {
@@ -246,8 +246,9 @@ div {
 
 .play-button-container {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
+    width: 100px;
     transform: translate(-50%, -50%);
     font-size: 70px;
     color: white;

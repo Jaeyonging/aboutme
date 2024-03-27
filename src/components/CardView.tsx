@@ -3,6 +3,8 @@ import sampleData from "../data/sample.json";
 import { Projects } from '../types/example';
 import { CiPlay1 } from "react-icons/ci";
 import { FetchProjects } from '../firebase/firebaseFetch';
+import Lottie from 'lottie-react';
+import PlayLogo from '../assets/lottie/playLogo.json'
 
 export const CardView = () => {
     const [projects, setProjects] = useState<Projects[]>([]);
@@ -32,7 +34,8 @@ export const CardView = () => {
                             // console.log(target.alt);
                         }} className='cardview-thumb' src={project.imgurl} alt={project.id} onClick={() => imageOnCick(project.gameurl)} />
                         <div className="play-button-container">
-                            <CiPlay1 className="play-button" onClick={() => imageOnCick(project.gameurl)}></CiPlay1>
+
+                            <Lottie animationData={PlayLogo} className="play-button" onClick={() => imageOnCick(project.gameurl)}></Lottie>
                         </div>
                     </div>
                     <div className='cardview-card'>
