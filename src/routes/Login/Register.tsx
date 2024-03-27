@@ -11,7 +11,7 @@ export const Register = () => {
     const [errorMessage, setErrorMessage] = useState("");
 
     const handleRegister = async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault(); // 폼 제출 시 페이지 리로딩 방지
+        e.preventDefault();
 
         if (password !== confirmPassword) {
             setErrorMessage("Passwords do not match");
