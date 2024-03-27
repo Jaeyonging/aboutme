@@ -36,10 +36,10 @@ export const ProgressBar = ({ title, value, color }: Props) => {
                         {title}
                     </div>
                     <div>
-                        hi
+                        h1
                     </div>
                     <div>
-                        hi
+                        hi2
                     </div>
                     <div>
                         hi

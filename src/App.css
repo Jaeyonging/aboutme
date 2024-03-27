@@ -29,23 +29,33 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(130, 180, 255);
 }
 
 .login-card {
     display: flex;
     flex-direction: column;
-    background-color: rgba(99, 93, 213, 0.109);
+    background-color: rgba(99, 93, 213, 0.418);
     width: 600px;
     height: 500px;
     font-size: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: 20px;
+    text-align: center;
+
 }
 
 .login-password,
 .login-login {
     flex-direction: row;
+}
+
+.login-logininfo {
+    font-size: 15px;
+    color: rgb(70, 21, 21);
+    margin-top: 30px;
+    margin-bottom: 10px;
 }
 
 .login-logo {
@@ -63,11 +73,12 @@ div {
 }
 
 .login-idhint {
-    margin-left: 73px;
+    margin-left: 100px;
     width: 80%;
     font-size: 15px;
     color: rgb(70, 21, 21);
     padding: 7px;
+    text-align: start;
 }
 
 .password {
@@ -83,11 +94,9 @@ div {
     font-size: 20px;
     color: white;
     padding: 10px;
-    align-self: center;
     background-color: rgb(119, 169, 212);
     border-radius: 20px;
     border-style: none;
-    margin-top: 50px;
 }
 
 .login-button:hover {
@@ -356,4 +365,5 @@ div {
     font-size: 30px;
     align-self: center;
     font-weight: bold;
+    margin-bottom: 10px;
 }

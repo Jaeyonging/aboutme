@@ -1,40 +1,87 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { FaUser } from "react-icons/fa";
 import { FaKey } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
+import { LoginUser } from '../firebase/firebaseFetch';
 
 export const Login = () => {
-    const navigate = useNavigate()
-    const [loginInfo, setLoginInfo] = useState("id must include @")
-    const [pwrdInfo, setPwdInfo] = useState("pwd must be longer than 15 characters")
-    const [isSuccess, setIsSuccess] = useState(true)
+    const navigate = useNavigate();
+    const [userID, setUserId] = useState("");
+    const [userPwd, setUserPwd] = useState("");
+    const [loginInfo, setLoginInfo] = useState("");
+    const [pwrdInfo, setPwdInfo] = useState("");
+    const [isLogin, setIsLogin] = useState(false);
+    const [userInfo, setUserInfo] = useState("")
+    const [isLoginInfo, setIsLoginInfo] = useState("")
 
-    const loginButton = () => {
-        if (isSuccess) {
-            navigate(`/home`)
+    useEffect(() => {
+        if (isLogin) {
+            navigate('/home');
         }
-    }
+    }, [isLogin]);
+
+    const handleUserIdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        setUserId(value);
+        if (value.includes('@')) {
+            setLoginInfo("");
+        } else {
+            setLoginInfo("ID: id must include @");
+        }
+    };
+
+    const handleUserPwdChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value = event.target.value;
+        setUserPwd(value);
+        if (value.length > 5) {
+            setPwdInfo("");
+        } else {
+            setPwdInfo("PWD: pwd must be longer than 5 characters");
+        }
+    };
+
+    const submitHandle: React.FormEventHandler<HTMLFormElement> = async (event) => {
+        event.preventDefault();
+        setIsLoginInfo("")
+
+        try {
+            const user = await LoginUser(userID, userPwd);
+            console.log('Login successful for user:', user);
+            setIsLogin(true);
+        } catch (error: any) {
+            console.error('Login failed:', error.message);
+            setIsLoginInfo("Failed to login")
+            setIsLogin(false);
+        }
+    };
+
 
     return (
+
         <div className='login-main'>
             <div className='login-card'>
-                <div className='login-login'>
-                    <FaUser className='login-logo'></FaUser>
-                    <input className='login' type='email' placeholder='Email'></input>
-                    <div className='login-idhint'>
-                        ID: {" "}{loginInfo}
+                <form onSubmit={submitHandle}>
+                    <div className='login-login'>
+                        <FaUser className='login-logo'></FaUser>
+                        <input className='login' type='email' placeholder='Email' value={userID} onChange={handleUserIdChange}></input>
+                        <div className='login-idhint'>
+                            {loginInfo}
+                        </div>
                     </div>
-                </div>
-                <div className='login-password'>
-                    <FaKey className='login-logo'></FaKey>
-                    <input className="password" type='password' placeholder='Password'></input>
-                    <div className='login-idhint'>
-                        PWD:{" "}{pwrdInfo}
+                    <div className='login-password'>
+                        <FaKey className='login-logo'></FaKey>
+                        <input className="password" type='password' placeholder='Password' value={userPwd} onChange={handleUserPwdChange}></input>
+                        <div className='login-idhint'>
+                            {pwrdInfo}
+                        </div>
                     </div>
-                </div>
-                <button className='login-button' onClick={loginButton}>
-                    Login
-                </button>
+                    <div className='login-logininfo'>
+                        {isLoginInfo}
+                    </div>
+                    <button className='login-button' type='submit'>
+                        Login
+                    </button>
+                </form>
                 <div className='login-already'>
                     <Link to='register'>
                         New user?
@@ -48,5 +95,5 @@ export const Login = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};

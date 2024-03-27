@@ -1,4 +1,4 @@
-import { Suspense, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Home } from "./routes/Home";
 import './App.css'
@@ -13,22 +13,21 @@ import { Blogs } from "./routes/Blogs";
 
 function App() {
   return (
-    <Suspense fallback={<div>로딩중</div>}>
-      {/* <audio src="../src/assets/bgm.mp3" autoPlay={true} /> */}
-
-
-      <Routes>
-        <Route path="/" element={<Login></Login>} />
-        <Route path="/home" element={<Home></Home>} />
-        <Route path="/projects" element={<Projects></Projects>} />
-        <Route path="/about" element={<About></About>} />
-        <Route path="/contact" element={<Contact></Contact>} />
-        <Route path="/blogs" element={<Blogs></Blogs>} />
-        <Route path="/register" element={<Register></Register>} />
-        <Route path="/findID" element={<FindID></FindID>} />
-        <Route path="/findPWD" element={<FindPwd></FindPwd>} />
-      </Routes>
-    </Suspense>
+    <>
+      <Suspense fallback={<div>로딩중</div>}>
+        <Routes>
+          <Route path="/" element={<Login></Login>} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/projects" element={<Projects></Projects>} />
+          <Route path="/about" element={<About></About>} />
+          <Route path="/contact" element={<Contact></Contact>} />
+          <Route path="/blogs" element={<Blogs></Blogs>} />
+          <Route path="/register" element={<Register></Register>} />
+          <Route path="/findID" element={<FindID></FindID>} />
+          <Route path="/findPWD" element={<FindPwd></FindPwd>} />
+        </Routes>
+      </Suspense>
+    </>
   );
 }
 

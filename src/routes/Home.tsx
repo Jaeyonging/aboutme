@@ -15,14 +15,13 @@ import AppleLogo from '../assets/lottie/apple.json'
 import { Skill } from '../components/Skill';
 import FallingStar from '../components/FallingStar';
 
+
 export const Home = () => {
   const [value, setValue] = useState([0, 0, 0, 0, 0, 0, 0])
-
   useEffect(() => {
     const timer = setInterval(() => {
       setValue([80, 50, 40, 60, 80, 10])
     }, 150);
-
     return () => {
       clearInterval(timer);
     };
