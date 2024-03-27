@@ -46,7 +46,7 @@ export const Login = () => {
 
         try {
             const user = await LoginUser(userID, userPwd);
-            console.log('Login successful for user:', user);
+            console.log('Login successful for user:');
             setIsLogin(true);
         } catch (error: any) {
             console.error('Login failed:', error.message);

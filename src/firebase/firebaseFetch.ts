@@ -23,7 +23,7 @@ export async function LoginUser(userId: string, userPwd: string) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, userId, userPwd);
         const user = userCredential.user;
-        console.log('User logged in:', user.uid);
+        // console.log('User logged in:', user.uid);
         return user;
     } catch (error) {
         // Handle login error

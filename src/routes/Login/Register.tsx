@@ -20,7 +20,7 @@ export const Register = () => {
 
         try {
             const user = await RegisterUser(email, password);
-            console.log('Registration successful for user:', user);
+            console.log('Registration successful for user:');
             navigate('/');
         } catch (error: any) {
             console.error('Registration failed:', error.message);
