@@ -5,11 +5,11 @@ import './App.css'
 import { Register } from "./routes/Login/Register";
 import { FindID } from "./routes/Login/FindID";
 import { FindPwd } from "./routes/Login/FindPwd";
-import { Login } from "./components/Login";
 import { Projects } from "./routes/Projects";
 import { About } from "./routes/About";
 import { Contact } from "./routes/Contact";
 import { Blogs } from "./routes/Blogs";
+import { Login } from "./routes/Login/Login";
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
           <Route path="/findPWD" element={<FindPwd></FindPwd>} />
         </Routes>
       </Suspense>
+
     </>
   );
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { FaUser } from "react-icons/fa";
 import { FaKey } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
-import { LoginUser } from '../firebase/firebaseFetch';
+import { LoginUser } from '../../firebase/firebaseFetch';
 
 export const Login = () => {
     const navigate = useNavigate();

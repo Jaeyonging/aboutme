@@ -140,18 +140,27 @@ div {
     margin-top: 50px;
 }
 
+.register-cont {
+    display: flex;
+    /* background-color: blue; */
+    flex-direction: row;
+    align-items: center;
+}
+
+.register-title {
+    /* background-color: gray; */
+    width: 150px;
+    text-align: center;
+}
+
 .register-id,
 .register-nick,
 .register-pwd {
-    width: 80%;
+    width: 60%;
     margin-left: 10px;
     padding: 10px;
     border-radius: 5px;
     font-size: 20px;
-}
-
-.register-nick {
-    width: 70%;
 }
 
 .backbutton {
@@ -169,15 +178,19 @@ div {
     font-size: 20px;
     color: white;
     padding: 10px;
-    align-self: center;
     background-color: rgb(119, 169, 212);
     border-radius: 20px;
     border-style: none;
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .register-button:hover {
     background-color: rgb(69, 152, 225);
+}
+
+.error-message {
+    font-size: 15px;
+    color: rgb(70, 21, 21);
 }
 
 .cardview-cont {

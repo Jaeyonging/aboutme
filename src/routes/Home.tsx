@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Login } from '../components/Login'
+import { Login } from './Login/Login'
 import { NavBar } from '../components/NavBar'
 import { CardView } from '../components/CardView'
 import { LinearProgress } from '@mui/material';
