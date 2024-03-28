@@ -431,6 +431,54 @@ div {
     align-items: center;
 }
 
+.aboutme-title {
+    text-align: center;
+    font-size: 20px;
+    padding: 15px;
+    font-style: italic;
+}
+
+.aboutme-descr {
+    font-size: 17px;
+    background-color: red;
+}
+
 .me-img {
     width: 300px;
+}
+
+.about-me-descr {
+    display: flex;
+    width: 700px;
+    justify-content: space-between;
+}
+
+.aboutme-btn {
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    padding: 10px 15px 10px 15px;
+    background-color: #c77eff;
+    border-style: none;
+}
+
+.aboutme-btn:hover {
+    background-color: #b350ff;
+}
+
+.aboutme-btn:active {
+    background-color: #8a00cc;
+}
+
+.aboutme {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin-top: 10px;
+}
+
+.end {
+    opacity: 1;
+    transition: opacity 1s;
 }
