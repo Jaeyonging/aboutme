@@ -19,33 +19,31 @@ import FallingStar from '../components/FallingStar';
 export const Home = () => {
   const [value, setValue] = useState([0, 0, 0, 0, 0, 0, 0])
   useEffect(() => {
-    const timer = setInterval(() => {
+    setTimeout(() => {
       setValue([80, 50, 40, 60, 80, 10])
-    }, 150);
-    return () => {
-      clearInterval(timer);
-    };
+    }, 150)
   }, [])
   return (
     <>
       <NavBar></NavBar>
       <FallingStar></FallingStar>
       <div className='home-cont'>
-        <Lottie style={{ width: 400 }} animationData={DeveloperLogo}></Lottie>
-        <div className='me-title'>
-          Jaeyong Choi
+        <Lottie style={{ width: 400, marginTop: -60 }} animationData={DeveloperLogo}></Lottie>
+        <div className='home-quote'>
+          The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.
         </div>
-        <ProgressBar title='TypeScript' value={value[0]} color='red' />
+        <div className='home-quote-name'>
+          -Steve Jobs-
+        </div>
+        <ProgressBar title='Typescript' value={value[0]} color='red' />
         <ProgressBar title='Javascript' value={value[1]} color='orange' />
-
         <ProgressBar title='Java' value={value[2]} color='yellow' />
-
         <ProgressBar title='Kotlin' value={value[3]} color='green' />
-
         <ProgressBar title='Python' value={value[4]} color='blue' />
         <ProgressBar title='Swift' value={value[5]} color='violet' />
-
-
+        <div className='home-projects'>
+          You can checkout my projects in 'Projects'
+        </div>
         <div className='skill-logos'>
           <div>
             <Skill lottieStyle={{ width: 50 }} animationData={ReactLogo} >React</Skill>

@@ -5,7 +5,9 @@ export const Blogs = () => {
     return (
         <>
             <NavBar />
-            Blogs
+            <div>
+
+            </div>
         </>
     )
 }

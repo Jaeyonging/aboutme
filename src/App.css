@@ -197,10 +197,37 @@ div {
     color: rgb(70, 21, 21);
 }
 
+.hashtag-buttons {
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+
+.hashtag-button {
+    background-color: rgb(0, 213, 255);
+    color: white;
+    font-size: 13px;
+    border-style: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.hashtag-button:hover {
+    background-color: rgb(0, 157, 189);
+}
+
 .cardview-cont {
     display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cardview-projects {
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 10px;
 }
 
 .cardview-item {
@@ -272,6 +299,21 @@ div {
     color: white;
 }
 
+.home-quote {
+    font-style: italic;
+    font-size: 14px;
+}
+
+.home-quote-name {
+    font-style: italic;
+    font-size: 14px;
+    padding-bottom: 10px;
+}
+
+.home-projects {
+    font-size: 12px;
+}
+
 .me-logo {
     width: 300px;
 }
@@ -313,7 +355,7 @@ div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding-top: 30px;
+    padding-top: 10px;
 }
 
 .skill-logos>div {

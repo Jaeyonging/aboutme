@@ -1,19 +1,27 @@
-import { LinearProgress } from '@mui/material'
+import { LinearProgress } from '@mui/material';
 import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react';
+import { SkillMap } from '../types/example';
 
 interface Props {
-    title: string,
-    value: number,
-    color: string,
+    title: string;
+    value: number;
+    color: string;
 }
 
 export const ProgressBar = ({ title, value, color }: Props) => {
     const [isOpen, setIsOpen] = useState(false);
-
+    const [description, setDescription] = useState<string[]>([]);
+    console.log("1")
     const toggleDetails = () => {
         setIsOpen(!isOpen);
-    }
+    };
+
+    useEffect(() => {
+        if (SkillMap.has(title)) {
+            setDescription(SkillMap.get(title) || []);
+        }
+    }, [title]);
 
     return (
         <>
@@ -35,27 +43,13 @@ export const ProgressBar = ({ title, value, color }: Props) => {
                     <div className='dropdown-title'>
                         {title}
                     </div>
-                    <div>
-                        h1
-                    </div>
-                    <div>
-                        hi2
-                    </div>
-                    <div>
-                        hi
-                    </div>
-                    <div>
-                        hi
-                    </div>
-                    <div>
-                        hi
-                    </div>
-                    <div>
-                        hi
-                    </div>
+                    {description.map((item, index) => (
+                        <div key={index}>
+                            - {item}
+                        </div>
+                    ))}
                 </div>
             </div>
         </>
-
     );
-}
+};
