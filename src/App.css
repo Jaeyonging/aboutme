@@ -440,7 +440,7 @@ div {
 
 .aboutme-descr {
     font-size: 17px;
-    background-color: red;
+    padding: 10px;
 }
 
 .me-img {
@@ -481,4 +481,10 @@ div {
 .end {
     opacity: 1;
     transition: opacity 1s;
+}
+
+.bold-text {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(255, 164, 164);
 }

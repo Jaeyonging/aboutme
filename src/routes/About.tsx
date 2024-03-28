@@ -25,7 +25,7 @@ export const About = () => {
                         <button className='aboutme-btn' onClick={() => tapClick("Projects")}>Projects</button>
                         <button className='aboutme-btn' onClick={() => tapClick("Activity")}>Activity</button>
                         <button className='aboutme-btn' onClick={() => tapClick("History")}>History</button>
-                        <button className='aboutme-btn' onClick={() => tapClick("Schools")}>Schools</button>
+                        <button className='aboutme-btn' onClick={() => tapClick("School Activity")}>School Activity</button>
                         <button className='aboutme-btn' onClick={() => tapClick("TMI")}>TMI</button>
                     </div>
                 </div>
