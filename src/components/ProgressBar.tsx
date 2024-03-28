@@ -1,7 +1,7 @@
 import { LinearProgress } from '@mui/material';
 import { IoIosArrowDropdown, IoIosArrowDropup } from "react-icons/io";
 import React, { useEffect, useState } from 'react';
-import { SkillMap } from '../types/example';
+import { SkillMap } from '../types/types';
 
 interface Props {
     title: string;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import sampleData from "../data/sample.json";
-import { Projects } from '../types/example';
+import { Projects } from '../types/types';
 import { CiPlay1 } from "react-icons/ci";
 import { FetchProjects } from '../firebase/firebaseFetch';
 import Lottie from 'lottie-react';

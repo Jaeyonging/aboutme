@@ -1,6 +1,6 @@
 import { db } from '../firebase/firebase';
 import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
-import { Projects } from '../types/example';
+import { Projects } from '../types/types';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
 
