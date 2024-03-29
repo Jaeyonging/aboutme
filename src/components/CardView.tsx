@@ -44,6 +44,7 @@ export const CardView = () => {
             setShowProjects(true)
             return
         }
+
         setShowProjects(false)
         const filtered = projects.filter(project => project.hashtags.includes(hashtag));
         setFilteredProjects(filtered);
@@ -65,20 +66,22 @@ export const CardView = () => {
                     className='search-input'
                 />
             </div>
-            <div>
-                {filteredProjects.length} / {projects.length}
-            </div>
+
             <div className='hashtag-buttons'>
                 <button className='hashtag-button' onClick={() => filterProjectsByHashtag('')}>All</button>
                 <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#React')}>#React</button>
                 <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#Phaser')}>#Phaser</button>
                 <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#Android')}>#Android</button>
                 <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#IOS')}>#IOS</button>
-                <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#Threejs')}>#ThreeJS</button>
+                <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#Three.js')}>#ThreeJS</button>
                 <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#키즈한글')}>#키즈한글</button>
                 <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#다비수키즈')}>#다비수키즈</button>
                 <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#다비수구구단')}>#다비수구구단</button>
-                <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#케이글')}>#케이글</button>            </div>
+                <button className='hashtag-button' onClick={() => filterProjectsByHashtag('#케이글')}>#케이글</button>
+            </div>
+            <div className='project-number'>
+                {filteredProjects.length} / {projects.length}
+            </div>
             <div className='cardview-projects'>
                 {filteredProjects.map(project => (
                     <div className={`cardview-item ${showProjects ? 'show' : ''}`} key={project.id}>
@@ -94,10 +97,10 @@ export const CardView = () => {
                             </div>
                         </div>
                         <div className='cardview-card'>
-                            <div>Name: {project.id}</div>
-                            <div>Password: {project.password}</div>
-                            <div>Project: {project.project}</div>
-                            <div>Date: {project.date}</div>
+                            <div className='card-title'>Name: <span className='card-thumb'>{project.id}</span></div>
+                            <div className='card-title'>Password:<span className='card-thumb'>{project.password}</span></div>
+                            <div className='card-title'>Project: <span className='card-thumb'>{project.project}</span></div>
+                            <div className='card-title'>Date: <span className='card-thumb'>{project.date}</span></div>
                             <div className='cardview-hashtags'>{project.hashtags.join(', ')}</div>
                         </div>
                     </div>

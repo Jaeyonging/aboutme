@@ -27,6 +27,7 @@ export const Home = () => {
     <>
       <NavBar></NavBar>
       <FallingStar></FallingStar>
+
       <div className='home-cont'>
         <Lottie style={{ width: 400, marginTop: -60 }} animationData={DeveloperLogo}></Lottie>
         <div className='home-quote'>
