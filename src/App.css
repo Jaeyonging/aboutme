@@ -199,8 +199,8 @@ div {
 
 .hashtag-buttons {
     display: flex;
-    width: 500px;
-    justify-content: space-between;
+    width: 1000px;
+    justify-content: space-around;
 }
 
 .hashtag-button {
@@ -209,7 +209,7 @@ div {
     font-size: 13px;
     border-style: none;
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px 15px;
 }
 
 .hashtag-button:hover {
@@ -220,6 +220,15 @@ div {
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+
+.search-input {
+    border-radius: 30px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-style: none;
+    color: black;
 }
 
 .cardview-projects {
@@ -237,6 +246,12 @@ div {
     color: white;
     width: 300px;
     border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.cardview-item.show {
+    opacity: 1;
 }
 
 .cardview-thumb {

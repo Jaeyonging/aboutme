@@ -2,14 +2,15 @@
     "projects": {
         "힌글맞추기1": {
             "date": "2023.12.25 - 2023.12.26",
-            "project": "한글방글",
+            "project": "키즈한글",
             "hashtags": [
                 "#Phaser",
-                "#html5",
-                "#games"
+                "#Html5",
+                "#Games"
             ],
             "imgurl": "../game1.png",
-            "gameurl": "https://naver.com"
+            "gameurl": "https://jaeyonging.itch.io/kids-15",
+            "password": "0000"
         },
         "구구단10": {
             "date": "2023.12.25 - 2023.12.26",
