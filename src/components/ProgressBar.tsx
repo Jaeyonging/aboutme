@@ -12,7 +12,6 @@ interface Props {
 export const ProgressBar = ({ title, value, color }: Props) => {
     const [isOpen, setIsOpen] = useState(false);
     const [description, setDescription] = useState<string[]>([]);
-    console.log("1")
     const toggleDetails = () => {
         setIsOpen(!isOpen);
     };

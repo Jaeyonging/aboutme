@@ -22,6 +22,12 @@ div {
     color: red;
 }
 
+.bold-text {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(255, 164, 164);
+}
+
 .login-main {
     position: absolute;
     width: 100%;
@@ -424,9 +430,10 @@ div {
     margin-top: 4px
 }
 
-.dropdown-logo:hover {
-    cursor: pointer;
-}
+.dropdown-logo:hover {}
+
+
+
 
 .dropdown-detail {
     width: 590px;
@@ -516,8 +523,20 @@ div {
     transition: opacity 1s;
 }
 
-.bold-text {
-    font-weight: bold;
-    font-size: 20px;
-    color: rgb(255, 164, 164);
+.main {
+    cursor: none;
+}
+
+.pointer {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.main:has(.dropdown-logo:hover) .pointer {
+    background-color: rgba(255, 255, 255, 0.167);
 }
