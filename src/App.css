@@ -38,6 +38,11 @@ div {
     background-color: rgb(130, 180, 255);
 }
 
+.login,
+.password{
+    cursor: none;
+}
+
 .login-card {
     display: flex;
     flex-direction: column;
@@ -111,6 +116,7 @@ div {
 
 .login-button:hover {
     background-color: rgb(69, 152, 225);
+    cursor: none;
 }
 
 .login-already {
