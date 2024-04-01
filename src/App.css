@@ -7,7 +7,6 @@ div {
     justify-content: space-between;
     padding: 15px 20px;
     background-color: black;
-
 }
 
 .navbarMenu {
@@ -20,6 +19,7 @@ div {
 
 .navbarMenu:hover {
     color: red;
+    cursor: none;
 }
 
 .bold-text {
@@ -39,7 +39,7 @@ div {
 }
 
 .login,
-.password{
+.password {
     cursor: none;
 }
 
@@ -186,7 +186,7 @@ div {
 
 
 .backbutton:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .register-button {
@@ -236,6 +236,7 @@ div {
 
 .hashtag-button:hover {
     background-color: rgb(0, 157, 189);
+    cursor: none;
 }
 
 .cardview-cont {
@@ -295,7 +296,7 @@ div {
 }
 
 .cardview-thumb:hover {
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .cardview-thumb:hover .play-button {
@@ -330,7 +331,7 @@ div {
 
 .image-container:hover .play-button-container {
     opacity: 1;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .home-cont {
@@ -543,6 +544,6 @@ div {
     z-index: 999;
 }
 
-.main:has(.dropdown-logo:hover, ) .pointer {
+.main:has(.dropdown-logo:hover, .backbutton:hover, .cardview-thumb:hover, .image-container:hover .play-button-container, .navbarMenu:hover, .hashtag-button:hover) .pointer {
     background-color: rgba(255, 255, 255, 0.167);
 }
