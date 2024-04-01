@@ -16,7 +16,7 @@ export const AboutMe = ({ title }: { title: string }) => {
             setFade('');
         };
     }, [title]);
-
+    console.log("hei")
     const renderBoldText = (item: string) => {
         const boldIndexStart = item.indexOf('**');
         const boldIndexEnd = item.indexOf('**', boldIndexStart + 2);
