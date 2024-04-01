@@ -537,6 +537,6 @@ div {
     z-index: 999;
 }
 
-.main:has(.dropdown-logo:hover) .pointer {
+.main:has(.dropdown-logo:hover, ) .pointer {
     background-color: rgba(255, 255, 255, 0.167);
 }
