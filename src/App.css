@@ -36,7 +36,13 @@ html {
     position: absolute;
     z-index: 100;
     border: none;
-    top: 0px
+    top: 0px;
+    right: 0px;
+    background-color: blue;
+}
+
+.logout-button:hover {
+    cursor: none;
 }
 
 .login-main {
@@ -615,6 +621,6 @@ html {
     z-index: 999;
 }
 
-.main:has(.dropdown-logo:hover, .backbutton:hover, .cardview-thumb:hover, .image-container:hover .play-button-container, .navbarMenu:hover, .hashtag-button:hover, .aboutme-btn:hover) .pointer {
+.main:has(.dropdown-logo:hover, .backbutton:hover, .cardview-thumb:hover, .image-container:hover .play-button-container, .navbarMenu:hover, .hashtag-button:hover, .aboutme-btn:hover, .logout-button:hover) .pointer {
     background-color: rgba(255, 255, 255, 0.167);
 }

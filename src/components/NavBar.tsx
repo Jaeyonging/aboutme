@@ -7,9 +7,7 @@ export const NavBar = () => {
 
     const dispatch = useDispatch()
     const logout = () => {
-        console.log("log out")
         dispatch(Logout())
-
     }
     return (
         <>
@@ -20,7 +18,7 @@ export const NavBar = () => {
                 <Link className='navbarMenu' to={`/about`}>About</Link>
                 <Link className='navbarMenu' to={`/contact`}>Contact</Link>
                 <button className='logout-button' onClick={() => logout()}>
-                    logout
+                    Logout
                 </button>
             </div>
         </>

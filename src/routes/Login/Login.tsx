@@ -7,7 +7,7 @@ import Lottie from 'lottie-react';
 import WelcomLogo from '../../assets/lottie/welcome.json'
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/configureStore';
-import { LoginSuccess, Logout } from '../../store/userSlice';
+import { LoginSuccess, Logout, SetEmail } from '../../store/userSlice';
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ export const Login = () => {
 
     useEffect(() => {
         if (isLogin) {
-            if (userID == import.meta.env.VITE_MASTER_KEY) {
+            if (userInfo.isMaster) {
                 navigate('/master')
             } else {
                 navigate('/home');
@@ -64,6 +64,7 @@ export const Login = () => {
             const user = await LoginUser(userID, userPwd);
             console.log('Login successful for user:');
             setIsLogin(true);
+            dispatch(SetEmail(userID))
             dispatch(LoginSuccess())
         } catch (error: any) {
             console.error('Login failed:', error.message);
