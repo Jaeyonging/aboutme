@@ -12,15 +12,12 @@ export const Master = () => {
             navigate('/master')
         } else {
             navigate('/home');
-
         }
 
     }, []);
     return (
         <>
-            <NavBar>
-
-            </NavBar>
+            <NavBar></NavBar>
             <div>Master</div>
         </>
     )

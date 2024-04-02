@@ -5,12 +5,16 @@ import { CiPlay1 } from "react-icons/ci";
 import { FetchProjects } from '../firebase/firebaseFetch';
 import Lottie from 'lottie-react';
 import PlayLogo from '../assets/lottie/playLogo.json';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/configureStore';
 
 export const CardView = () => {
     const [projects, setProjects] = useState<Projects[]>([]);
     const [filteredProjects, setFilteredProjects] = useState<Projects[]>([]);
     const [searchItem, setSearchItem] = useState<string>('');
     const [showProjects, setShowProjects] = useState<boolean>(false);
+    const userInfo = useSelector((state: RootState) => state.userInfo)
+
     useEffect(() => {
         async function fetchData() {
             const fetchedProjects = await FetchProjects();
@@ -67,6 +71,10 @@ export const CardView = () => {
                     onChange={handleSearch}
                     className='search-input'
                 />
+                {userInfo.isMaster && (
+                    <>
+                        hi
+                    </>)}
             </div>
 
             <div className='hashtag-buttons'>
