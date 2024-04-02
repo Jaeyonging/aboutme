@@ -1,5 +1,5 @@
 import { db } from '../firebase/firebase';
-import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
+import { collection, query, getDocs, orderBy, doc, setDoc } from "firebase/firestore";
 import { Learneds, Projects } from '../types/types';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
@@ -17,6 +17,19 @@ export async function FetchProjects() {
     })
     return learnedData
 }
+
+export async function InsertProject(projectData: Projects): Promise<void> {
+    try {
+        const projectDocRef = doc(db, 'projects', projectData.id);
+        await setDoc(projectDocRef, projectData);
+        console.log('Project inserted successfully:', projectData);
+    } catch (error) {
+        console.error('Failed to insert project:', error);
+        throw error;
+    }
+}
+
+
 
 export async function FetchLearned() {
     const querySnapshot = await getDocs(learnedQuery)

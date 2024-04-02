@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import { Projects } from '../types/types';
+import { InsertProject } from '../firebase/firebaseFetch';
 
 export const AddProject = () => {
     const [formData, setFormData] = useState<Projects>({
@@ -12,6 +13,8 @@ export const AddProject = () => {
         password: '',
         project: ''
     });
+
+    const [error, setError] = useState(false)
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -30,9 +33,24 @@ export const AddProject = () => {
         }));
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(formData);
+        console.log(formData)
+        try {
+            await InsertProject(formData);
+            setFormData({
+                id: '',
+                date: '',
+                gameurl: '',
+                hashtags: [],
+                imgurl: '',
+                password: '',
+                project: ''
+            });
+            console.log('Data inserted successfully');
+        } catch (error) {
+            console.error('Failed to insert data:', error);
+        }
     };
 
     return (
@@ -76,6 +94,12 @@ export const AddProject = () => {
                     <label>Project:</label>
                     <input className='project-text' type="text" name="project" value={formData.project} onChange={handleChange} />
                 </div>
+
+                {error && (
+                    <div className="form-errors">
+                        error
+                    </div>
+                )}
 
                 <button className="submit-button" type="submit">Submit</button>
             </form>
