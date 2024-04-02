@@ -1,18 +1,29 @@
 import { db } from '../firebase/firebase';
 import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
-import { Projects } from '../types/types';
+import { Learneds, Projects } from '../types/types';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
 
 const projectQuery = query(collection(db, 'projects'), orderBy('date', 'desc'));
 
+const learnedQuery = query(collection(db, 'learned'));
 
 export async function FetchProjects() {
     const querySnapshot = await getDocs(projectQuery)
-    const projectsData: Projects[] = [];
+    const learnedData: Projects[] = [];
 
     querySnapshot.forEach((doc) => {
-        projectsData.push({ id: doc.id, ...doc.data() } as Projects);
+        learnedData.push({ id: doc.id, ...doc.data() } as Projects);
+    })
+    return learnedData
+}
+
+export async function FetchLearned() {
+    const querySnapshot = await getDocs(learnedQuery)
+    const projectsData: Learneds[] = [];
+
+    querySnapshot.forEach((doc) => {
+        projectsData.push({ id: doc.id, ...doc.data() } as Learneds);
     })
     return projectsData
 }

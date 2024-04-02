@@ -8,6 +8,13 @@ export interface Projects {
     password: string
 }
 
+export interface Learneds {
+    id: string;
+    descr: string;
+    hashtags: string[];
+    imgurl: string;
+}
+
 export const SkillMap: Map<string, string[]> = new Map([
     ["Typescript", ["Changed Phaser in Javascript to Typescript.", "Made React website using Typescript.", "Made ThreeJS with Typescript.", "You can check out projects in 'Projects'"]],
     ["Javascript", ["Made Games using Phaser in Javascript.", "Made React website using Javascript", "Made ThreeJs with Javascript."]],

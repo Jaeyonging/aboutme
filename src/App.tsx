@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState, useRef, RefObject } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { Home } from "./routes/Home";
 import './App.css'
 import { Register } from "./routes/Login/Register";
@@ -8,8 +8,11 @@ import { FindPwd } from "./routes/Login/FindPwd";
 import { Projects } from "./routes/Projects";
 import { About } from "./routes/About";
 import { Contact } from "./routes/Contact";
-import { Blogs } from "./routes/Blogs";
 import { Login } from "./routes/Login/Login";
+import { Learned } from "./routes/Learned";
+import { Master } from "./routes/Master";
+import { useSelector } from "react-redux";
+import { RootState } from "./store/configureStore";
 
 function App() {
   const [xy, setXY] = useState({ x: 0, y: 0 });
@@ -28,12 +31,14 @@ function App() {
 
   useEffect(() => {
     document.addEventListener('mousemove', xyHandler);
-
+    console.log("hi")
     return () => {
       document.removeEventListener('mousemove', xyHandler);
     };
   }, []);
 
+  const userInfo = useSelector((state: RootState) => state.userInfo)
+  console.log(userInfo.isLogin)
   return (
     <>
       <div className="main" ref={mainRef}>
@@ -45,19 +50,32 @@ function App() {
         <Suspense fallback={<div>로딩중</div>}>
 
           <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/findID" element={<FindID />} />
-            <Route path="/findPWD" element={<FindPwd />} />
+            <Route path="/login" element={<Login />} />
+            {userInfo.isLogin ? (
+              <>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/learned" element={<Learned />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="/findID" element={<FindID />} />
+                <Route path="/findPWD" element={<FindPwd />} />
+                <Route path="/master" element={<Master />} />
+              </>
+            )
+              :
+              (
+                <>
+                  <Route path="*" element={<Navigate to="/login" />} />
+                </>
+              )}
+
           </Routes>
         </Suspense>
 
-      </div>
+      </div >
     </>
   );
 }

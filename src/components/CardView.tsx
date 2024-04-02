@@ -55,6 +55,8 @@ export const CardView = () => {
         window.open(url, '_blank');
     };
 
+    console.log("hi")
+
     return (
         <div className='cardview-cont'>
             <div className='search-container'>

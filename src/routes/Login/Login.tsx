@@ -5,6 +5,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { LoginUser } from '../../firebase/firebaseFetch';
 import Lottie from 'lottie-react';
 import WelcomLogo from '../../assets/lottie/welcome.json'
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../../store/configureStore';
+import { LoginSuccess } from '../../store/userSlice';
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -13,12 +16,20 @@ export const Login = () => {
     const [loginInfo, setLoginInfo] = useState("");
     const [pwrdInfo, setPwdInfo] = useState("");
     const [isLogin, setIsLogin] = useState(false);
-    const [userInfo, setUserInfo] = useState("")
     const [isLoginInfo, setIsLoginInfo] = useState("")
+
+    const userInfo = useSelector((state: RootState) => state.userInfo)
+    const dispatch = useDispatch<AppDispatch>();
+
 
     useEffect(() => {
         if (isLogin) {
-            navigate('/home');
+            if (userID == import.meta.env.VITE_MASTER_KEY) {
+                navigate('/master')
+            } else {
+                navigate('/home');
+
+            }
         }
     }, [isLogin]);
 
@@ -50,13 +61,13 @@ export const Login = () => {
             const user = await LoginUser(userID, userPwd);
             console.log('Login successful for user:');
             setIsLogin(true);
+            dispatch(LoginSuccess())
         } catch (error: any) {
             console.error('Login failed:', error.message);
             setIsLoginInfo("Failed to login")
             setIsLogin(false);
         }
     };
-
 
     return (
 
