@@ -14,6 +14,6 @@ const user = createSlice({
     }
 })
 
-export const { LoginSuccess } = user.actions;
+export const { LoginSuccess, Logout } = user.actions;
 
 export default user

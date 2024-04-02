@@ -32,6 +32,13 @@ html {
     color: rgb(255, 164, 164);
 }
 
+.logout-button {
+    position: absolute;
+    z-index: 100;
+    border: none;
+    top: 0px
+}
+
 .login-main {
     position: absolute;
     width: 100%;

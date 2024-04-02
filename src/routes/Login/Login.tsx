@@ -7,7 +7,7 @@ import Lottie from 'lottie-react';
 import WelcomLogo from '../../assets/lottie/welcome.json'
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store/configureStore';
-import { LoginSuccess } from '../../store/userSlice';
+import { LoginSuccess, Logout } from '../../store/userSlice';
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -21,6 +21,9 @@ export const Login = () => {
     const userInfo = useSelector((state: RootState) => state.userInfo)
     const dispatch = useDispatch<AppDispatch>();
 
+    useEffect(() => {
+        dispatch(Logout())
+    }, [])
 
     useEffect(() => {
         if (isLogin) {
