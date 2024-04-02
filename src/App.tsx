@@ -13,6 +13,7 @@ import { Learned } from "./routes/Learned";
 import { Master } from "./routes/Master";
 import { useSelector } from "react-redux";
 import { RootState } from "./store/configureStore";
+import { AddProject } from "./routes/AddProject";
 
 function App() {
   const [xy, setXY] = useState({ x: 0, y: 0 });
@@ -38,7 +39,6 @@ function App() {
   }, []);
 
   const userInfo = useSelector((state: RootState) => state.userInfo)
-  console.log(userInfo.isLogin)
   return (
     <>
       <div className="main" ref={mainRef}>
@@ -62,7 +62,12 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/findID" element={<FindID />} />
                 <Route path="/findPWD" element={<FindPwd />} />
-                <Route path="/master" element={<Master />} />
+                {userInfo.isMaster ? (
+                  <>
+                    <Route path="/master" element={<Master />} />
+                    <Route path="/addproject" element={<AddProject />} />
+                  </>
+                ) : <Route path="*" element={<Navigate to="/home" />} />}
               </>
             )
               :

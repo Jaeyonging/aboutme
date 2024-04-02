@@ -7,6 +7,7 @@ import Lottie from 'lottie-react';
 import PlayLogo from '../assets/lottie/playLogo.json';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/configureStore';
+import { useNavigate } from 'react-router-dom';
 
 export const CardView = () => {
     const [projects, setProjects] = useState<Projects[]>([]);
@@ -14,7 +15,7 @@ export const CardView = () => {
     const [searchItem, setSearchItem] = useState<string>('');
     const [showProjects, setShowProjects] = useState<boolean>(false);
     const userInfo = useSelector((state: RootState) => state.userInfo)
-
+    const navigate = useNavigate()
     useEffect(() => {
         async function fetchData() {
             const fetchedProjects = await FetchProjects();
@@ -59,8 +60,6 @@ export const CardView = () => {
         window.open(url, '_blank');
     };
 
-    console.log("hi")
-
     return (
         <div className='cardview-cont'>
             <div className='search-container'>
@@ -73,7 +72,9 @@ export const CardView = () => {
                 />
                 {userInfo.isMaster && (
                     <>
-                        hi
+                        <button onClick={() => { navigate("/addproject") }}>
+                            +
+                        </button>
                     </>)}
             </div>
 
