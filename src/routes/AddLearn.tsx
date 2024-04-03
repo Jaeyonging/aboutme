@@ -14,13 +14,14 @@ export const AddLearn: React.FC = () => {
         imgurl: ''
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
             ...prevState,
             [name]: value
         }));
     };
+
 
     const handleHashtagsChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const newHashtags = [...formData.hashtags];
@@ -64,8 +65,9 @@ export const AddLearn: React.FC = () => {
 
                 <div className="form-group">
                     <label>Description:</label>
-                    <input className='project-text' type="text" name="descr" value={formData.descr} onChange={handleChange} />
+                    <textarea className='project-descr' name="descr" value={formData.descr} onChange={handleChange} />
                 </div>
+
 
                 <div className="form-group">
                     <label>Hashtags:</label>

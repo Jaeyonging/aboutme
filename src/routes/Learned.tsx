@@ -29,7 +29,7 @@ export const Learned = () => {
             <NavBar />
             {userInfo.isMaster && (
                 <button className='add-learn-button' onClick={() => addbutonClick()}>
-                    +
+                    Add Learned
                 </button>)}
             {learnedData.map((learnedItem, index) => (
                 <AboutCard

@@ -75,7 +75,7 @@ export const CardView = () => {
                 {userInfo.isMaster && (
                     <>
                         <button className='add-button' onClick={() => { navigate("/addproject") }}>
-                            +
+                            Upload Project
                         </button>
                     </>)}
             </div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AboutMap } from '../types/types';
+import { RenderText } from './RenderText';
 
 export const AboutMe = ({ title }: { title: string }) => {
     const [fade, setFade] = useState('');
@@ -16,33 +17,15 @@ export const AboutMe = ({ title }: { title: string }) => {
             setFade('');
         };
     }, [title]);
-    console.log("hei")
-    const renderBoldText = (item: string) => {
-        const boldIndexStart = item.indexOf('**');
-        const boldIndexEnd = item.indexOf('**', boldIndexStart + 2);
-
-        if (boldIndexStart !== -1 && boldIndexEnd !== -1) {
-            const boldText = item.substring(boldIndexStart + 2, boldIndexEnd);
-            return (
-                <>
-                    {item.substring(0, boldIndexStart)}
-                    <span className="bold-text">{boldText}</span>
-                    {item.substring(boldIndexEnd + 2)}
-                </>
-            );
-        }
-
-        return item;
-    };
 
     return (
         <>
             <div className={'aboutme ' + fade}>
                 <div className='aboutme-title'>{title}</div>
                 {description.map((item, index) => (
-                    <div key={index} className='aboutme-descr'>
-                        {renderBoldText(item)}
-                    </div>
+                    <RenderText key={index} >
+                        {item}
+                    </RenderText>
                 ))}
             </div>
         </>
