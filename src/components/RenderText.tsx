@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export const RenderText = ({ children }: { children: string }) => {
 
@@ -31,12 +31,21 @@ export const RenderText = ({ children }: { children: string }) => {
         return result;
     };
 
-
-
+    const renderTextWithLineBreaks = (text: string) => {
+        const lines = text.split('(nxtln)');
+        const elements: JSX.Element[] = [];
+        lines.forEach((line, index) => {
+            elements.push(...renderBoldText(line));
+            if (index < lines.length - 1) {
+                elements.push(<br key={index} />);
+            }
+        });
+        return elements;
+    };
 
     return (
         <div className='aboutme-descr'>
-            {renderBoldText(children)}
+            {renderTextWithLineBreaks(children)}
         </div>
     )
 }

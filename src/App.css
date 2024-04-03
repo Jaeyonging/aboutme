@@ -561,14 +561,12 @@ html {
     display: flex;
     justify-content: flex-start;
     padding-left: 150px;
-    background-color: blue;
     padding-top: 30px;
 }
 
 .learned-rightcont {
     display: flex;
     justify-content: flex-end;
-    background-color: blue;
     padding-right: 150px;
     padding-top: 30px;
 
@@ -581,7 +579,7 @@ html {
     border-radius: 15px;
     padding: 10px;
     justify-content: center;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.403);
 }
 
 .learned-img {
