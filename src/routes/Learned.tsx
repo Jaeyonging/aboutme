@@ -3,10 +3,14 @@ import { NavBar } from '../components/NavBar'
 import { AboutCard } from '../components/AboutCard'
 import { Learneds } from '../types/types'
 import { FetchLearned, FetchProjects } from '../firebase/firebaseFetch'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store/configureStore'
+import { useNavigate } from 'react-router-dom'
 
 export const Learned = () => {
     const [learnedData, setLearnedData] = useState<Learneds[]>([])
-
+    const userInfo = useSelector((state: RootState) => state.userInfo)
+    const navigate = useNavigate()
     useEffect(() => {
         async function fetchData() {
             const fetchLearnedData = await FetchLearned()
@@ -15,11 +19,18 @@ export const Learned = () => {
         fetchData()
     }, [])
 
+    const addbutonClick = () => {
+        navigate("/addlearn")
+    }
     console.log("learned")
 
     return (
         <>
             <NavBar />
+            {userInfo.isMaster && (
+                <button className='add-learn-button' onClick={() => addbutonClick()}>
+                    +
+                </button>)}
             {learnedData.map((learnedItem, index) => (
                 <AboutCard
                     key={learnedItem.id}

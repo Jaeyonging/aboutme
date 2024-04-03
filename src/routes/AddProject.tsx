@@ -63,41 +63,41 @@ export const AddProject = () => {
             <NavBar />
             <form className="add-project-form" onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>ID:</label>
-                    <input className='project-text' type="text" name="id" value={formData.id} onChange={handleChange} />
+                    <label>Name:</label>
+                    <input className='project-text' placeholder='Enter the Name' type="text" name="id" value={formData.id} onChange={handleChange} />
                 </div>
 
                 <div className="form-group">
                     <label>Date:</label>
-                    <input className='project-text' type="text" name="date" value={formData.date} onChange={handleChange} />
+                    <input className='project-text' placeholder='YYYY.MM.DD - YYYY.MM.DD' type="text" name="date" value={formData.date} onChange={handleChange} />
                 </div>
 
                 <div className="form-group">
                     <label>Game URL:</label>
-                    <input className='project-text' type="text" name="gameurl" value={formData.gameurl} onChange={handleChange} />
+                    <input className='project-text' placeholder='Enter the URL' type="text" name="gameurl" value={formData.gameurl} onChange={handleChange} />
                 </div>
 
                 <div className="form-group">
                     <label>Hashtags:</label>
                     {formData.hashtags.map((tag, index) => (
-                        <input key={index} type="text" value={tag} onChange={(e) => handleHashtagsChange(e, index)} />
+                        <input key={index} type="text" placeholder='Enter the #hastag' value={tag} onChange={(e) => handleHashtagsChange(e, index)} />
                     ))}
                     <button className='submit-button' type="button" onClick={handleAddHashtag}>Add Hashtag</button>
                 </div>
 
                 <div className="form-group">
                     <label>Image URL:</label>
-                    <input className='project-text' type="text" name="imgurl" value={formData.imgurl} onChange={handleChange} />
+                    <input className='project-text' placeholder='Enter the image url' type="text" name="imgurl" value={formData.imgurl} onChange={handleChange} />
                 </div>
 
                 <div className="form-group">
                     <label>Password:</label>
-                    <input className='project-text' type="text" name="password" value={formData.password} onChange={handleChange} />
+                    <input className='project-text' placeholder='Enter the password' type="text" name="password" value={formData.password} onChange={handleChange} />
                 </div>
 
                 <div className="form-group">
                     <label>Project:</label>
-                    <input className='project-text' type="text" name="project" value={formData.project} onChange={handleChange} />
+                    <input className='project-text' placeholder='Enter the project' type="text" name="project" value={formData.project} onChange={handleChange} />
                 </div>
 
                 {error && (

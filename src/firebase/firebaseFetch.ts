@@ -1,5 +1,5 @@
 import { db } from '../firebase/firebase';
-import { collection, query, getDocs, orderBy, doc, setDoc, getDoc } from "firebase/firestore";
+import { collection, query, getDocs, orderBy, doc, setDoc, getDoc, addDoc } from "firebase/firestore";
 import { Learneds, Projects } from '../types/types';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
@@ -42,6 +42,21 @@ export async function FetchLearned() {
         projectsData.push({ id: doc.id, ...doc.data() } as Learneds);
     })
     return projectsData
+}
+
+export async function InsertLearned(projectData: Learneds): Promise<void> {
+    const projectDocRef = doc(db, 'learned', projectData.id);
+    try {
+        const projectDocSnapshot = await getDoc(projectDocRef);
+        if (projectDocSnapshot.exists()) {
+            throw `Project with id ${projectData.id} already exists`
+        }
+
+        await setDoc(projectDocRef, projectData);
+        console.log('Project inserted successfully:', projectData);
+    } catch (error) {
+        throw error;
+    }
 }
 
 export async function LoginUser(userId: string, userPwd: string) {

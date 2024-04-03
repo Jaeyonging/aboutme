@@ -60,6 +60,8 @@ export const CardView = () => {
         window.open(url, '_blank');
     };
 
+
+
     return (
         <div className='cardview-cont'>
             <div className='search-container'>
@@ -72,7 +74,7 @@ export const CardView = () => {
                 />
                 {userInfo.isMaster && (
                     <>
-                        <button onClick={() => { navigate("/addproject") }}>
+                        <button className='add-button' onClick={() => { navigate("/addproject") }}>
                             +
                         </button>
                     </>)}

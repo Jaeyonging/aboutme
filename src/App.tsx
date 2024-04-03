@@ -14,6 +14,7 @@ import { Master } from "./routes/Master";
 import { useSelector } from "react-redux";
 import { RootState } from "./store/configureStore";
 import { AddProject } from "./routes/AddProject";
+import { AddLearn } from "./routes/AddLearn";
 
 function App() {
   const [xy, setXY] = useState({ x: 0, y: 0 });
@@ -66,6 +67,7 @@ function App() {
                   <>
                     <Route path="/master" element={<Master />} />
                     <Route path="/addproject" element={<AddProject />} />
+                    <Route path="/addlearn" element={<AddLearn />} />
                   </>
                 ) : <Route path="*" element={<Navigate to="/home" />} />}
               </>

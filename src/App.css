@@ -262,8 +262,19 @@ html {
     flex-direction: column;
 }
 
-.project-number {}
+.add-button {
+    border-style: none;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 10px;
+    width: 30px;
+    background-color: rgb(97, 68, 241);
+}
 
+.add-button:hover {
+    background-color: rgb(37, 2, 214);
+    cursor: none;
+}
 
 .search-input {
     border-radius: 30px;
@@ -620,6 +631,12 @@ label {
     margin-bottom: 5px;
 }
 
+.form-errors {
+    color: red;
+    text-align: center;
+    padding: 10px;
+}
+
 .project-text {
     width: 100%;
     padding: 10px;
@@ -643,6 +660,20 @@ label {
     background-color: #0056b3;
 }
 
+.add-learn-button {
+    position: absolute;
+    border-style: none;
+    background-color: #62ff00;
+    padding: 10;
+    right: 20%;
+    width: 30px;
+    height: 30px;
+}
+
+.add-learn-button:hover {
+    cursor: none;
+    background-color: #358b00;
+}
 
 
 .main {
@@ -660,6 +691,6 @@ label {
     z-index: 999;
 }
 
-.main:has(.dropdown-logo:hover, .backbutton:hover, .cardview-thumb:hover, .image-container:hover .play-button-container, .navbarMenu:hover, .hashtag-button:hover, .aboutme-btn:hover, .logout-button:hover) .pointer {
+.main:has(.dropdown-logo:hover, .backbutton:hover, .cardview-thumb:hover, .image-container:hover .play-button-container, .navbarMenu:hover, .hashtag-button:hover, .aboutme-btn:hover, .logout-button:hover, .add-button:hover, .add-learn-button:hover) .pointer {
     background-color: rgba(255, 255, 255, 0.167);
 }
