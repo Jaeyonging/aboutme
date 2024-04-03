@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import { Projects } from '../types/types';
 import { InsertProject } from '../firebase/firebaseFetch';
+import { useNavigate } from 'react-router-dom';
 
 export const AddProject = () => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState<Projects>({
         id: '',
         date: '',
@@ -51,6 +53,8 @@ export const AddProject = () => {
                 password: '',
                 project: ''
             });
+            navigate('/projects')
+
             console.log('Data inserted successfully');
         } catch (error) {
             setError((error as Error).toString());

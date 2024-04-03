@@ -22,7 +22,6 @@ export const Learned = () => {
     const addbutonClick = () => {
         navigate("/addlearn")
     }
-    console.log("learned")
 
     return (
         <>

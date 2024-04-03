@@ -49,8 +49,18 @@ export const AddLearn: React.FC = () => {
                 imgurl: ''
             });
             navigate('/learned')
-        } catch (error) {
-            setError((error as Error).toString())
+        } catch (error: any) {
+            console.log(error.code)
+            switch (error.code) {
+                case "invalid-argument": {
+                    setError(("No title"))
+                    return
+                }
+                default: {
+                    setError((error as Error).toString())
+
+                }
+            }
         }
     };
 
@@ -65,7 +75,7 @@ export const AddLearn: React.FC = () => {
 
                 <div className="form-group">
                     <label>Description:</label>
-                    <textarea className='project-descr' name="descr" value={formData.descr} onChange={handleChange} />
+                    <textarea className='project-descr' placeholder='**text** is bold text, (nxtln) is nextline' name="descr" value={formData.descr} onChange={handleChange} />
                 </div>
 
 
