@@ -8,6 +8,7 @@ import PlayLogo from '../assets/lottie/playLogo.json';
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/configureStore';
 import { useNavigate } from 'react-router-dom';
+import { RenderImg } from './RenderImg';
 
 export const CardView = () => {
     const [projects, setProjects] = useState<Projects[]>([]);
@@ -16,6 +17,7 @@ export const CardView = () => {
     const [showProjects, setShowProjects] = useState<boolean>(false);
     const userInfo = useSelector((state: RootState) => state.userInfo)
     const navigate = useNavigate()
+
     useEffect(() => {
         async function fetchData() {
             const fetchedProjects = await FetchProjects();
@@ -23,6 +25,8 @@ export const CardView = () => {
             setFilteredProjects(fetchedProjects);
         }
         fetchData();
+
+
     }, []);
 
     useEffect(() => {
@@ -99,10 +103,9 @@ export const CardView = () => {
                 {filteredProjects.map(project => (
                     <div className={`cardview-item ${showProjects ? 'show' : ''}`} key={project.id}>
                         <div className="image-container">
-                            <img
+                            <RenderImg
                                 className='cardview-thumb'
-                                src={project.imgurl}
-                                alt={project.id}
+                                imgurl={project.imgurl}
                                 onClick={() => imageOnClick(project.gameurl)}
                             />
                             <div className="play-button-container">

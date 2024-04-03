@@ -592,6 +592,11 @@ html {
     background-color: yellow;
 }
 
+.redner-img {
+    width: 300px;
+    height: 300px;
+}
+
 .learned-sum {
     display: flex;
     flex-direction: column;
