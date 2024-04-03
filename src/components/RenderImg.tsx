@@ -27,7 +27,7 @@ export const RenderImg = ({ imgurl, onClick, className = "learned-img" }: Props)
     return (
         <>
             {isLoading ? (
-                <Lottie style={{ width: 400, marginTop: -60 }} animationData={loadingAnimation} />
+                <Lottie className={className} animationData={loadingAnimation} />
             ) : (
                 <img className={className} src={imageSrc} onClick={onClick} />
             )}
