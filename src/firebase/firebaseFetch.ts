@@ -1,5 +1,5 @@
 import { db } from '../firebase/firebase';
-import { collection, query, getDocs, orderBy, doc, setDoc } from "firebase/firestore";
+import { collection, query, getDocs, orderBy, doc, setDoc, getDoc } from "firebase/firestore";
 import { Learneds, Projects } from '../types/types';
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
 
@@ -19,16 +19,19 @@ export async function FetchProjects() {
 }
 
 export async function InsertProject(projectData: Projects): Promise<void> {
+    const projectDocRef = doc(db, 'projects', projectData.id);
     try {
-        const projectDocRef = doc(db, 'projects', projectData.id);
+        const projectDocSnapshot = await getDoc(projectDocRef);
+        if (projectDocSnapshot.exists()) {
+            throw `Project with id ${projectData.id} already exists`
+        }
+
         await setDoc(projectDocRef, projectData);
         console.log('Project inserted successfully:', projectData);
     } catch (error) {
-        console.error('Failed to insert project:', error);
         throw error;
     }
 }
-
 
 
 export async function FetchLearned() {

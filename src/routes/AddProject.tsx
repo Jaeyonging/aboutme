@@ -14,7 +14,7 @@ export const AddProject = () => {
         project: ''
     });
 
-    const [error, setError] = useState(false)
+    const [error, setError] = useState<string>("");
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -33,9 +33,13 @@ export const AddProject = () => {
         }));
     };
 
+    const handleAddHashtag = () => {
+        setFormData(prevState => ({ ...prevState, hashtags: [...prevState.hashtags, ''] }));
+    };
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(formData)
+        // console.log(formData);
         try {
             await InsertProject(formData);
             setFormData({
@@ -49,7 +53,8 @@ export const AddProject = () => {
             });
             console.log('Data inserted successfully');
         } catch (error) {
-            console.error('Failed to insert data:', error);
+            setError((error as Error).toString());
+            console.error(error);
         }
     };
 
@@ -77,7 +82,7 @@ export const AddProject = () => {
                     {formData.hashtags.map((tag, index) => (
                         <input key={index} type="text" value={tag} onChange={(e) => handleHashtagsChange(e, index)} />
                     ))}
-                    <button className='submit-button' onClick={() => setFormData(prevState => ({ ...prevState, hashtags: [...prevState.hashtags, ''] }))}>Add Hashtag</button>
+                    <button className='submit-button' type="button" onClick={handleAddHashtag}>Add Hashtag</button>
                 </div>
 
                 <div className="form-group">
@@ -97,10 +102,9 @@ export const AddProject = () => {
 
                 {error && (
                     <div className="form-errors">
-                        error
+                        {error}
                     </div>
                 )}
-
                 <button className="submit-button" type="submit">Submit</button>
             </form>
         </>
