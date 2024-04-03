@@ -10,7 +10,7 @@ export const AddProject = () => {
         id: '',
         date: '',
         gameurl: '',
-        hashtags: [],
+        hashtags: [''],
         imgurl: '',
         password: '',
         project: ''
@@ -28,7 +28,7 @@ export const AddProject = () => {
 
     const handleHashtagsChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const newHashtags = [...formData.hashtags];
-        newHashtags[index] = e.target.value;
+        newHashtags[index] = e.target.value.startsWith('#') ? e.target.value : `#${e.target.value}`;
         setFormData(prevState => ({
             ...prevState,
             hashtags: newHashtags
@@ -39,8 +39,25 @@ export const AddProject = () => {
         setFormData(prevState => ({ ...prevState, hashtags: [...prevState.hashtags, ''] }));
     };
 
+    const handleRemoveHashtag = () => {
+        setFormData(prevState => {
+            const newHashtags = [...prevState.hashtags];
+            newHashtags.pop();
+            return {
+                ...prevState,
+                hashtags: newHashtags.filter(tag => tag !== '')
+            };
+        });
+    };
+
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const { id, date, gameurl, hashtags, imgurl, password, project } = formData;
+        if (!id || !date || !gameurl || !imgurl || !password || !project || hashtags.length === 0 || hashtags.some(tag => tag.trim() === '')) {
+            setError("모든 칸을 채워주세요.");
+            return;
+        }
         // console.log(formData);
         try {
             await InsertProject(formData);
@@ -84,9 +101,12 @@ export const AddProject = () => {
                 <div className="form-group">
                     <label>Hashtags:</label>
                     {formData.hashtags.map((tag, index) => (
-                        <input key={index} type="text" placeholder='Enter the #hastag' value={tag} onChange={(e) => handleHashtagsChange(e, index)} />
+                        <input className='project-text' key={index} type="text" placeholder='Enter the #hastag' value={tag} onChange={(e) => handleHashtagsChange(e, index)} />
                     ))}
-                    <button className='submit-button' type="button" onClick={handleAddHashtag}>Add Hashtag</button>
+                    <div className='hashtag-cont'>
+                        <button className='submit-button' type="button" onClick={handleRemoveHashtag}>Remove Hashtag</button>
+                        <button className='submit-button' type="button" onClick={handleAddHashtag}>Add Hashtag</button>
+                    </div>
                 </div>
 
                 <div className="form-group">

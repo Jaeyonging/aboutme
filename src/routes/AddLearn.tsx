@@ -10,7 +10,7 @@ export const AddLearn: React.FC = () => {
     const [formData, setFormData] = useState<Learneds>({
         id: '',
         descr: '',
-        hashtags: [],
+        hashtags: [''],
         imgurl: ''
     });
 
@@ -25,7 +25,7 @@ export const AddLearn: React.FC = () => {
 
     const handleHashtagsChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
         const newHashtags = [...formData.hashtags];
-        newHashtags[index] = e.target.value;
+        newHashtags[index] = e.target.value.startsWith('#') ? e.target.value : `#${e.target.value}`;
         setFormData(prevState => ({
             ...prevState,
             hashtags: newHashtags
@@ -33,13 +33,30 @@ export const AddLearn: React.FC = () => {
     };
 
 
-
     const handleAddHashtag = () => {
         setFormData(prevState => ({ ...prevState, hashtags: [...prevState.hashtags, ''] }));
     };
 
+    const handleRemoveHashtag = () => {
+        setFormData(prevState => {
+            const newHashtags = [...prevState.hashtags];
+            newHashtags.pop();
+            return {
+                ...prevState,
+                hashtags: newHashtags.filter(tag => tag !== '')
+            };
+        });
+    };
+
+
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const { id, descr, hashtags, imgurl } = formData;
+        if (!id || !descr || !imgurl || hashtags.length === 0 || hashtags.some(tag => tag.trim() === '')) {
+            setError("모든 칸을 채워주세요.");
+            return;
+        }
         try {
             await InsertLearned(formData);
             setFormData({
@@ -84,7 +101,10 @@ export const AddLearn: React.FC = () => {
                     {formData.hashtags.map((tag, index) => (
                         <input key={index} className='project-text' type="text" value={tag} onChange={(e) => handleHashtagsChange(e, index)} />
                     ))}
-                    <button className='submit-button' type="button" onClick={handleAddHashtag}>Add Hashtag</button>
+                    <div className='hashtag-cont'>
+                        <button className='submit-button' type="button" onClick={handleRemoveHashtag}>Remove Hashtag</button>
+                        <button className='submit-button' type="button" onClick={handleAddHashtag}>Add Hashtag</button>
+                    </div>
                 </div>
 
                 <div className="form-group">
@@ -101,3 +121,4 @@ export const AddLearn: React.FC = () => {
         </>
     );
 };
+
