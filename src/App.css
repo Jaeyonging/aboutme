@@ -679,11 +679,10 @@ label {
 .add-learn-button {
     position: absolute;
     border-style: none;
-    background-color: #62ff00;
     padding: 10;
     right: 20%;
-    height: 30px;
     border-radius: 10px;
+    background-color: red;
 }
 
 .add-learn-button:hover {
