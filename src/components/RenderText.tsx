@@ -1,4 +1,5 @@
 export const RenderText = ({ children }: { children: string }) => {
+
     const renderBoldText = (item: string, lineIndex: number) => {
         let result = [];
         let currentIndex = 0;
