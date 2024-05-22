@@ -30,15 +30,29 @@ export const RenderText = ({ children }: { children: string }) => {
         return result;
     };
 
+    const renderImage = (imgurl: string, key: string) => {
+        return <img key={key} src={imgurl} alt="dynamic content" />;
+    };
+
     const renderTextWithLineBreaks = (text: string) => {
         const lines = text.split('(nxtln)');
         const elements: JSX.Element[] = [];
+
         lines.forEach((line, index) => {
-            elements.push(...renderBoldText(line, index));
+            const parts = line.split(/(\*img [^\*]+\*)/);
+            parts.forEach((part, partIndex) => {
+                if (part.startsWith('*img ') && part.endsWith('*')) {
+                    const imageUrl = part.slice(5, -1).trim();
+                    elements.push(renderImage(imageUrl, `img_${index}_${partIndex}`));
+                } else {
+                    elements.push(...renderBoldText(part, index));
+                }
+            });
             if (index < lines.length - 1) {
                 elements.push(<br key={`br_${index}`} />);
             }
         });
+
         return elements;
     };
 

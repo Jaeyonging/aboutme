@@ -101,13 +101,13 @@ export const Login = () => {
                     </button>
                 </form>
                 <div className='login-already'>
-                    <Link to='register'>
+                    <Link to='/register'>
                         New user?
                     </Link>
-                    <Link to='findID'>
+                    <Link to='/findID'>
                         Forgot ID?
                     </Link>
-                    <Link to='findPWD'>
+                    <Link to='/findPWD'>
                         Forgot Password?
                     </Link>
                 </div>

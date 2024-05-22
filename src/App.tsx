@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "./store/configureStore";
 import { AddProject } from "./routes/AddProject";
 import { AddLearn } from "./routes/AddLearn";
+import { Mbti } from "./routes/Mbti"
 
 function App() {
   const [xy, setXY] = useState({ x: 0, y: 0 });
@@ -60,9 +61,7 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/learned" element={<Learned />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/findID" element={<FindID />} />
-                <Route path="/findPWD" element={<FindPwd />} />
+                <Route path="/mbti" element={<Mbti />}></Route>
                 {userInfo.isMaster ? (
                   <>
                     <Route path="/master" element={<Master />} />
@@ -75,6 +74,9 @@ function App() {
               :
               (
                 <>
+                  <Route path="/register" element={<Register />} />
+                  <Route path="/findID" element={<FindID />} />
+                  <Route path="/findPWD" element={<FindPwd />} />
                   <Route path="*" element={<Navigate to="/login" />} />
                 </>
               )}
