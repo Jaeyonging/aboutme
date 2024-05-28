@@ -21,8 +21,7 @@ export const Mbti = () => {
     return (
         <>
             <NavBar />
-            <div className={'aboutme ' + fade}>
-                <div className='aboutme-title'>My Self</div>
+            <div className={'mbti ' + fade}>
                 {description.map((item, index) => (
                     <RenderText key={index} >
                         {item}

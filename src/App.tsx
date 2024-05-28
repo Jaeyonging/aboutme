@@ -18,73 +18,73 @@ import { AddLearn } from "./routes/AddLearn";
 import { Mbti } from "./routes/Mbti"
 
 function App() {
-  const [xy, setXY] = useState({ x: 0, y: 0 });
-  const mainRef = useRef<HTMLDivElement | null>(null);
+  // const [xy, setXY] = useState({ x: 0, y: 0 });
+  // const mainRef = useRef<HTMLDivElement | null>(null);
 
-  const xyHandler = (e: { clientX: number; clientY: number; }) => {
-    const mouseX = e.clientX - 11;
-    const mouseY = e.clientY - 11;
-    if (mainRef.current) {
-      const rect = mainRef.current.getBoundingClientRect();
-      const offsetX = mouseX - rect.left;
-      const offsetY = mouseY - rect.top;
-      setXY({ x: offsetX, y: offsetY });
-    }
-  };
+  // const xyHandler = (e: { clientX: number; clientY: number; }) => {
+  //   const mouseX = e.clientX - 11;
+  //   const mouseY = e.clientY - 11;
+  //   if (mainRef.current) {
+  //     const rect = mainRef.current.getBoundingClientRect();
+  //     const offsetX = mouseX - rect.left;
+  //     const offsetY = mouseY - rect.top;
+  //     setXY({ x: offsetX, y: offsetY });
+  //   }
+  // };
 
-  useEffect(() => {
-    document.addEventListener('mousemove', xyHandler);
-    console.log("hi")
-    return () => {
-      document.removeEventListener('mousemove', xyHandler);
-    };
-  }, []);
+  // useEffect(() => {
+  //   document.addEventListener('mousemove', xyHandler);
+  //   console.log("hi")
+  //   return () => {
+  //     document.removeEventListener('mousemove', xyHandler);
+  //   };
+  // }, []);
 
   const userInfo = useSelector((state: RootState) => state.userInfo)
   return (
     <>
-      <div className="main" ref={mainRef}>
+      {/* <div className="main" ref={mainRef}>
         <div className='pointer' style={{
           transform: `translate(${xy.x}px, ${xy.y}px)`
         }}>
-        </div>
+        </div> */}
 
-        <Suspense fallback={<div>로딩중</div>}>
+      <Suspense fallback={<div>로딩중</div>}>
 
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            {userInfo.isLogin ? (
-              <>
-                <Route path="/" element={<Home />} />
-                <Route path="/home" element={<Home />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/learned" element={<Learned />} />
-                <Route path="/mbti" element={<Mbti />}></Route>
-                {userInfo.isMaster ? (
-                  <>
-                    <Route path="/master" element={<Master />} />
-                    <Route path="/addproject" element={<AddProject />} />
-                    <Route path="/addlearn" element={<AddLearn />} />
-                  </>
-                ) : <Route path="*" element={<Navigate to="/home" />} />}
-              </>
-            )
-              :
-              (
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          {userInfo.isLogin ? (
+            <>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/learned" element={<Learned />} />
+              <Route path="/mbti" element={<Mbti />}></Route>
+              {userInfo.isMaster ? (
                 <>
-                  <Route path="/register" element={<Register />} />
-                  <Route path="/findID" element={<FindID />} />
-                  <Route path="/findPWD" element={<FindPwd />} />
-                  <Route path="*" element={<Navigate to="/login" />} />
+                  <Route path="/master" element={<Master />} />
+                  <Route path="/addproject" element={<AddProject />} />
+                  <Route path="/addlearn" element={<AddLearn />} />
                 </>
-              )}
+              ) : <Route path="*" element={<Navigate to="/home" />} />}
+            </>
+          )
+            :
+            (
+              <>
+                <Route path="/register" element={<Register />} />
+                <Route path="/findID" element={<FindID />} />
+                <Route path="/findPWD" element={<FindPwd />} />
+                <Route path="*" element={<Navigate to="/login" />} />
+              </>
+            )}
 
-          </Routes>
-        </Suspense>
+        </Routes>
+      </Suspense>
 
-      </div >
+      {/* </div > */}
     </>
   );
 }
