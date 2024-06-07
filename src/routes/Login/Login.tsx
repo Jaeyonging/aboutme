@@ -96,6 +96,12 @@ export const Login = () => {
                     <div className='login-logininfo'>
                         {isLoginInfo}
                     </div>
+                    <div>
+                        email: admin@amdin.com
+                        <div>
+                            pwd: 123456
+                        </div>
+                    </div>
                     <button className='login-button' type='submit'>
                         Login
                     </button>

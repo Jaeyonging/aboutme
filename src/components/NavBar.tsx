@@ -16,7 +16,7 @@ export const NavBar = () => {
                 <Link className='navbarMenu' to={`/projects`}>Projects</Link>
                 <Link className='navbarMenu' to={`/learned`}>Learned</Link>
                 <Link className='navbarMenu' to={`/about`}>About</Link>
-                <Link className='navbarMenu' to={`/contact`}>Contact</Link>
+                {/* <Link className='navbarMenu' to={`/contact`}>Contact</Link> */}
                 <button className='logout-button' onClick={() => logout()}>
                     Logout
                 </button>
