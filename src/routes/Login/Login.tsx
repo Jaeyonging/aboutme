@@ -97,7 +97,10 @@ export const Login = () => {
                         {isLoginInfo}
                     </div>
                     <div>
-                        email: admin@amdin.com
+                        <div>
+                            email: admin@admin.com
+
+                        </div>
                         <div>
                             pwd: 123456
                         </div>
