@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Lottie from 'lottie-react';
-import loadingAnimation from '../assets/lottie/loading.json';
 import { RenderText } from './RenderText';
 import { RenderImg } from './RenderImg';
 
@@ -12,9 +10,8 @@ interface Props {
     position: string;
 }
 
-export const AboutCard = ({ imgurl, title, hashtags, descr, position }: Props) => {
+export const AboutCard = ({ imgurl, title, hashtags, descr, position, }: Props) => {
     const [cardPosition, setCardPosition] = useState("");
-
 
     useEffect(() => {
         if (position === "right") {
@@ -22,27 +19,24 @@ export const AboutCard = ({ imgurl, title, hashtags, descr, position }: Props) =
         } else {
             setCardPosition("learned-leftcont");
         }
-
-    }, []);
+    }, [position]);
 
     return (
-        <>
-            <div className={cardPosition}>
-                <div className='learned-card'>
-                    <RenderImg imgurl={imgurl}></RenderImg>
-                    <div className='learned-sum'>
-                        <div className='learned-title'>
-                            {title}
-                        </div>
-                        <div className='learned-hash'>
-                            {hashtags.join(', ')}
-                        </div>
-                        <div className='learned-descr'>
-                            <RenderText>{descr}</RenderText>
-                        </div>
+        <div className={`${cardPosition}`}>
+            <div className="learned-card">
+                <RenderImg imgurl={imgurl} className='learned-img-rounded'></RenderImg>
+                <div className='learned-sum'>
+                    <div className='learned-title'>
+                        {title}
+                    </div>
+                    <div className='learned-hash'>
+                        {hashtags.join(', ')}
+                    </div>
+                    <div className='learned-descr'>
+                        <RenderText>{descr}</RenderText>
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };

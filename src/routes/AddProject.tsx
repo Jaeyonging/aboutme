@@ -54,7 +54,7 @@ export const AddProject = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const { id, date, gameurl, hashtags, imgurl, password, project } = formData;
-        if (!id || !date || !gameurl || !imgurl || !password || !project || hashtags.length === 0 || hashtags.some(tag => tag.trim() === '')) {
+        if (!id || !date || !gameurl || !imgurl || !project || hashtags.length === 0 || hashtags.some(tag => tag.trim() === '')) {
             setError("모든 칸을 채워주세요.");
             return;
         }

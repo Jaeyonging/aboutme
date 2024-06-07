@@ -589,6 +589,28 @@ div {
     transition: opacity 1s;
 }
 
+.learn-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+}
+
+.learned-cards{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.learned-topik{
+    font-size: 30px;
+    weight: bold;
+    background-color: rgb(97, 68, 241);
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
 .learned-leftcont {
     display: flex;
     justify-content: flex-start;
@@ -604,20 +626,46 @@ div {
 
 }
 
+
 .learned-card {
+    opacity: 1;
     display: flex;
-    flex-direction: row;
-    width: 900px;
+    flex-direction: column;
+    width: 70vw;
     border-radius: 15px;
     padding: 10px;
     justify-content: center;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.403);
 }
+
+.learned-content {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease,opacity 0.5s ease-in-out;
+    margin-top:10px;
+    border-radius: 30px;
+    width:80vw;
+    margin-left:10vw;
+    background-color: rgb(138, 118, 239);
+}
+
+.learned-content.open {
+    max-height: 10000px;
+    opacity: 1
+}
+
 
 .learned-img {
     width: 300px;
     height: 300px;
-    background-color: yellow;
+}
+
+.learned-img-rounded{
+    width: 300px;
+    height: 300px;
+    border-radius: 30px;
 }
 
 .redner-img {
@@ -629,7 +677,8 @@ div {
     display: flex;
     flex-direction: column;
     background-color: black;
-    width: 600px;
+    margin-top:50px;
+    width: 60vw;
     padding: 10px;
 }
 
@@ -709,7 +758,6 @@ label {
 }
 
 .add-learn-button {
-    position: absolute;
     border-style: none;
     padding: 10;
     right: 20%;
