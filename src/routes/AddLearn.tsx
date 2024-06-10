@@ -11,7 +11,9 @@ export const AddLearn: React.FC = () => {
         id: '',
         descr: '',
         hashtags: [''],
-        imgurl: ''
+        imgurl: '',
+        url: "",
+        pwd: "",
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -52,8 +54,8 @@ export const AddLearn: React.FC = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const { id, descr, hashtags, imgurl } = formData;
-        if (!id || !descr || !imgurl || hashtags.length === 0 || hashtags.some(tag => tag.trim() === '')) {
+        const { id, descr, hashtags, imgurl, url } = formData;
+        if (!id || !descr || !imgurl || !url || hashtags.length === 0 || hashtags.some(tag => tag.trim() === '')) {
             setError("모든 칸을 채워주세요.");
             return;
         }
@@ -63,7 +65,9 @@ export const AddLearn: React.FC = () => {
                 id: '',
                 descr: '',
                 hashtags: [],
-                imgurl: ''
+                imgurl: '',
+                url: '',
+                pwd: "",
             });
             navigate('/learned')
         } catch (error: any) {
@@ -110,6 +114,14 @@ export const AddLearn: React.FC = () => {
                 <div className="form-group">
                     <label>Image URL:</label>
                     <input className='project-text' type="text" name="imgurl" value={formData.imgurl} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>URL:</label>
+                    <input className='project-text' type="text" name="url" value={formData.url} onChange={handleChange} />
+                </div>
+                <div className="form-group">
+                    <label>pwd:</label>
+                    <input className='project-text' type="text" name="pwd" value={formData.pwd} onChange={handleChange} />
                 </div>
                 {error && (
                     <div className="form-errors">

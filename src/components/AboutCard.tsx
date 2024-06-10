@@ -8,11 +8,13 @@ interface Props {
     descr: string;
     imgurl: string;
     position: string;
+    url: string;
+    pwd?: string;
 }
 
-export const AboutCard = ({ imgurl, title, hashtags, descr, position, }: Props) => {
+export const AboutCard = ({ imgurl, title, hashtags, descr, position, url, pwd }: Props) => {
     const [cardPosition, setCardPosition] = useState("");
-
+    console.log(url)
     useEffect(() => {
         if (position === "right") {
             setCardPosition("learned-rightcont");
@@ -25,6 +27,12 @@ export const AboutCard = ({ imgurl, title, hashtags, descr, position, }: Props) 
         <div className={`${cardPosition}`}>
             <div className="learned-card">
                 <RenderImg imgurl={imgurl} className='learned-img-rounded'></RenderImg>
+                <a href={url}>
+                    Link
+                </a>
+                <div>
+                    {pwd && "pwd : " + pwd}
+                </div>
                 <div className='learned-sum'>
                     <div className='learned-title'>
                         {title}

@@ -43,6 +43,8 @@ export const LearnedCard = ({ title }: Props) => {
                             hashtags={learnedItem.hashtags}
                             descr={learnedItem.descr}
                             imgurl={learnedItem.imgurl}
+                            url={learnedItem.url}
+                            pwd={learnedItem.pwd}
                             position={index % 2 === 0 ? 'left' : 'right'}
                         />
                     ))}

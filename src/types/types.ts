@@ -13,6 +13,8 @@ export interface Learneds {
     descr: string;
     hashtags: string[];
     imgurl: string;
+    url: string;
+    pwd: string;
 }
 
 export const SkillMap: Map<string, string[]> = new Map([
