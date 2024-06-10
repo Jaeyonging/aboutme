@@ -28,7 +28,7 @@ export const AboutCard = ({ imgurl, title, hashtags, descr, position, url, pwd }
             <div className="learned-card">
                 <RenderImg imgurl={imgurl} className='learned-img-rounded'></RenderImg>
                 <a href={url}>
-                    Link
+                    {url && "Link"}
                 </a>
                 <div>
                     {pwd && "pwd : " + pwd}
