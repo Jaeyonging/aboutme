@@ -23,6 +23,7 @@ ReactGA.initialize(TRACKING_ID);
 
 function App() {
   const location = useLocation();
+  console.log("start")
 
   useEffect(() => {
     ReactGA.set({ page: location.pathname });
