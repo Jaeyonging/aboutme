@@ -1,5 +1,5 @@
 import { Suspense, useEffect, useState, useRef, RefObject } from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { Home } from "./routes/Home";
 import './App.css'
 import { Register } from "./routes/Login/Register";
@@ -16,8 +16,19 @@ import { RootState } from "./store/configureStore";
 import { AddProject } from "./routes/AddProject";
 import { AddLearn } from "./routes/AddLearn";
 import { Mbti } from "./routes/Mbti"
+import ReactGA from 'react-ga4';
+
+const TRACKING_ID = import.meta.env.VITE_GA_PROPERTYID;
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    ReactGA.set({ page: location.pathname });
+    ReactGA.send('pageview');
+  }, [location]);
+
   // const [xy, setXY] = useState({ x: 0, y: 0 });
   // const mainRef = useRef<HTMLDivElement | null>(null);
 
