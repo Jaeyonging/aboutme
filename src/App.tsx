@@ -38,7 +38,30 @@ function App() {
       <Suspense fallback={<div>로딩중</div>}>
 
         <Routes>
-          {userInfo.isLogin ? (
+          <>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/learned" element={<Learned />} />
+            <Route path="/mbti" element={<Mbti />}></Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/findID" element={<FindID />} />
+            <Route path="/findPWD" element={<FindPwd />} />
+            <Route path="*" element={<Navigate to="/login" />} />
+            {userInfo.isMaster ? (
+              <>
+                <Route path="/master" element={<Master />} />
+                <Route path="/addproject" element={<AddProject />} />
+                <Route path="/addlearn" element={<AddLearn />} />
+              </>
+            ) : <Route path="*" element={<Navigate to="/home" />} />}
+          </>
+
+
+          {/* {userInfo.isLogin ? (
             <>
               <Route path="/" element={<Home />} />
               <Route path="/home" element={<Home />} />
@@ -65,7 +88,7 @@ function App() {
                 <Route path="/findPWD" element={<FindPwd />} />
                 <Route path="*" element={<Navigate to="/login" />} />
               </>
-            )}
+            )} */}
 
         </Routes>
       </Suspense>
