@@ -23,7 +23,6 @@ const TRACKING_ID = import.meta.env.VITE_GA_PROPERTYID;
 ReactGA.initialize(TRACKING_ID);
 
 function App() {
-  const dispatch = useDispatch()
   const location = useLocation();
   console.log("start")
 
@@ -31,11 +30,6 @@ function App() {
     ReactGA.set({ page: location.pathname });
     ReactGA.send('pageview');
   }, [location]);
-
-  useEffect(() => {
-    dispatch(LoginSuccess())
-
-  }, [])
 
   const userInfo = useSelector((state: RootState) => state.userInfo)
   return (
