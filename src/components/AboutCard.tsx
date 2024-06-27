@@ -14,7 +14,6 @@ interface Props {
 
 export const AboutCard = ({ imgurl, title, hashtags, descr, position, url, pwd }: Props) => {
     const [cardPosition, setCardPosition] = useState("");
-    console.log(url)
     useEffect(() => {
         if (position === "right") {
             setCardPosition("learned-rightcont");

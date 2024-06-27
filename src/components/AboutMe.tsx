@@ -11,7 +11,6 @@ export const AboutMe = ({ title }: { title: string }) => {
         setTimeout(() => {
             setFade('end');
         }, 100);
-        console.log(title)
 
         setDescription(AboutMap.get(title) || []);
 
