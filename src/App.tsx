@@ -30,8 +30,12 @@ function App() {
   useEffect(() => {
     ReactGA.set({ page: location.pathname });
     ReactGA.send('pageview');
-    dispatch(LoginSuccess())
   }, [location]);
+
+  useEffect(() => {
+    dispatch(LoginSuccess())
+
+  }, [])
 
   const userInfo = useSelector((state: RootState) => state.userInfo)
   return (
@@ -40,7 +44,6 @@ function App() {
       <Suspense fallback={<div>로딩중</div>}>
 
         <Routes>
-          <Route path="/login" element={<Login />} />
           {userInfo.isLogin ? (
             <>
               <Route path="/" element={<Home />} />
@@ -62,6 +65,7 @@ function App() {
             :
             (
               <>
+                <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/findID" element={<FindID />} />
                 <Route path="/findPWD" element={<FindPwd />} />
